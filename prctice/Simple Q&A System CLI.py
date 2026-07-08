@@ -22,7 +22,7 @@ def run_QA (questions):
     score = 0
     total = len(questions)
     for i , q in enumerate(questions,1):
-        print(f'No.{i}question:{q['question']}')
+        print(f'\nNo.{i}question:{q['question']}')
         for key , value in q['options'].items():
             print(f'{key}.{value}')
 
@@ -43,5 +43,5 @@ def run_QA (questions):
 '''调用函数'''
 if __name__ == '__main__' :
     correct , total =run_QA(questions)
-    print(f'You got {correct} questions right')
+    print(f'\nYou got {correct} questions right')
     print(f'Accuracy rate {correct / total * 100:.1f}%')
