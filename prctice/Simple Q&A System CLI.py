@@ -19,7 +19,7 @@ questions = [question1,question2,question3]
 
 def run_QA (questions):
     '''运行cli'''
-    scoal = 0
+    score = 0
     total = len(questions)
     for i , q in enumerate(questions,1):
         print(f'No.{i}question:{q['question']}')
@@ -35,10 +35,10 @@ def run_QA (questions):
 
         if user_answer == q['answer']:
             print('right!')
-            scoal += 1
+            score += 1
         else:
             print(f'error!The correct answer is {q['answer']}')
-    return scoal , total
+    return score , total
 
 '''调用函数'''
 if __name__ == '__main__' :
