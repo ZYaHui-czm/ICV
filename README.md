@@ -3,6 +3,7 @@
 > 从完全新手到独立完成项目的 Python 学习之旅  
 > 周期：45天 | 5个等级 | 包含每日考核 × 每周速查表
 
+# 本文档参考了["Python-100-Days"](https://github.com/jackfrued/Python-100-Days)这个仓库的内容。感谢作者的开源精神
 ---
 
 ## 🗂️ 项目结构
