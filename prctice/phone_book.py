@@ -1,4 +1,4 @@
-def pheon_book(name):
+def phone_book(contact_name):
     pbook = {
         'Alex' : '11111',
         'Deram' : '25468',
@@ -6,12 +6,11 @@ def pheon_book(name):
         'Steve' : '564982313'
     }
 
-    # index_name = input("Who do you want to see :")
-    if index_name not in pbook:
-        print("Not found!")
-    else:
-        print(f'The phone nomber is : {pbook[index_name]}')
+    # contact_name = input("Who do you want to see :")
+    if contact_name not in pbook:
+        return "Not found!" 
+    return f'The phone number is : {pbook[contact_name]}'
 
 if __name__ == "__main__":
-    index_name = (input("Who do you want to see :"))
-    pheon_book(index_name)
+    contact_name = (input("Who do you want to see :"))
+    print(phone_book(contact_name))
