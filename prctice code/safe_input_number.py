@@ -1,5 +1,7 @@
 def safe_input_number():
+    '''定义函数'''
     while True:
+        '''捕获异常'''
         try:
             prompt = int(input())
             print(prompt)
