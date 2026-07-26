@@ -1,10 +1,10 @@
 class FileLogger:
     def __init__(self , filename):
-        self.filenaame = filename
+        self.filename = filename
         self.filecontext = None
 
     def __enter__(self):
-        self.filecontext = open(self.file , "a" , encoding="utf-8")
+        self.filecontext = open(self.filename , "a" , encoding="utf-8")
         return self.filecontext
     
     def __exit__(self, exc_type, exc, tb):
