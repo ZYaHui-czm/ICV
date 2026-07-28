@@ -16,7 +16,7 @@ def pair_sums(nums):
 
     sum_lst = [a + b for a , b in num_combin]   #列表生成式实现
     nums = Counter(sum_lst)
-    return nums.most_common(1)
+    return nums.most_common(1)[0]               #不加[0]返回的是[(5,2)]，加上返回裸元组
 
 # a = [1,2,3,4]
 #测试

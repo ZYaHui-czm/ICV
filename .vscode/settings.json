@@ -1,3 +1,8 @@
 {
-    "python.defaultInterpreterPath": "C:/Users/chengzimo/AppData/Local/Microsoft/WindowsApps/python3"
+    "python.defaultInterpreterPath": "C:/Users/chengzimo/AppData/Local/Microsoft/WindowsApps/python3",
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
