@@ -12,27 +12,36 @@ import pandas as pd
 from collections import Counter
 
 def count_py():
-    
-    params = {"q": "python" , "sort": "stars" , "per_page": 10}
-    response = requests.get("https://api.github.com/search/repositories" , params=params)
-    response.raise_for_status()
-    repos = response.json()["items"]
+    try:
+        params = {"q": "python" , "sort": "stars" , "per_page": 10}
+        response = requests.get("https://api.github.com/search/repositories" , params=params)
+        response.raise_for_status()
+        repos = response.json()["items"]
 
-    rows = []
-    for repo in repos:
-        rows.append({
-            "name": repo["name"],
-            "stars": repo["stargazers_count"],
-            "language": repo["language"] or "N/A"
-        })
+        rows = []
+        for repo in repos:
+            rows.append({
+                "name": repo["name"],
+                "stars": repo["stargazers_count"],
+                "language": repo["language"] or "N/A"
+            })
 
-    df = pd.DataFrame(rows)
+        df = pd.DataFrame(rows)
 
-    languages = [r["language"] for r in rows]
-    count_language = Counter(languages)
+        languages = [r["language"] for r in rows]
+        count_language = Counter(languages)
 
-    top_repo = max(rows , key=lambda x: x["stars"])
+        top_repo = max(rows , key=lambda x: x["stars"])
+    except requests.Timeout:
+        print("timeout")
+    except requests.HTTPError as e:
+        print(f'http error statu:{e}')
+    except requests.ConnectionError as e:
+        print(f'connection error statu:{e}')
+    except requests.exceptions.RequestException as e:
+        print(f"error statu:{e}")
 
+        
     #测试
     print(df)
     print(rows)
