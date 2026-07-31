@@ -1,3 +1,12 @@
+'''
+写一个生成器 date_range(start_date, end_date)：
+
+接收起始和结束日期字符串 "2025-07-01", "2025-07-05"
+用 datetime 模块解析
+用 yield 逐日产出两个日期之间每天（含起止）
+每产出一次打印 "生成：YYYY-MM-DD"
+用装饰器 @count_calls 统计生成器被 next() 调用了多少次
+'''
 from functools import wraps
 from datetime import datetime , timedelta
 

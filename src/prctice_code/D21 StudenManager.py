@@ -1,3 +1,13 @@
+'''
+写一个 StudentManager 类：
+
+__init__ — 初始化空的学生字典 self.students = {}
+add(name, score) — 添加学生
+remove(name) — 删除学生（不存在则忽略）
+top(n) — 用 sorted + lambda 返回成绩最高的 n 个学生名
+save(filename) — 用 json 把学生数据存入文件
+__len__ — 返回学生数量
+'''
 class StudentManager:
     '''初始化'''
     def __init__(self):

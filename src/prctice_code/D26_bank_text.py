@@ -1,3 +1,12 @@
+'''
+写 test_bank.py，测试以下 Bank 类：
+要求：
+
+用 fixture 初始化一个余额为 100 的 Bank 对象
+测试存款（含正常和 ≤0 的情况）
+测试取款（含正常和余额不足的情况）
+用 parametrize 测试多组存款数据
+'''
 class Bank:
     def __init__(self, balance=0):
         self.balance = balance

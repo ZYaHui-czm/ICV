@@ -1,3 +1,12 @@
+'''
+要求写函数 analyze_csv(filepath)：
+
+读取 CSV 文件
+添加一列 "总分"（语文+数学+英语）
+添加一列 "平均分"（总分/3，保留1位小数）
+按班级分组，求每班总分平均值
+返回分组结果
+'''
 import pandas as pd
 def analyze_csv(filepath):
     df = pd.read_csv(filepath , encoding="utf-8")
