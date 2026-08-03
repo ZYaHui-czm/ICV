@@ -7,6 +7,7 @@ NotifierFactory.create(type) 根据类型返回对应通知器
 未知类型抛 ValueError
 '''
 
+#不需要初始化类
 class EmailNotifier:
 
     def send(self , msg):
@@ -29,6 +30,7 @@ class NotifierFactory:
         "push": PushNotifier
     }
 
+    #有cls需要classmethod
     @classmethod
     def create(cls , notify_type):
         push_type = cls._PushType.get(notify_type)
