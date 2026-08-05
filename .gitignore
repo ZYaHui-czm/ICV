@@ -1,4 +1,10 @@
 #reasonix
 .reasonix
 reasonix.toml
+#basic
 basic.md
+#venv
+venv/
+__pycache__/
+*.pyc
+.env
