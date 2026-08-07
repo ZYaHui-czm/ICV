@@ -11,18 +11,19 @@ timeout=10,超时/网络错误抛自定义 ApiError
 
 import requests
 import os
+from src.prctice_code.exceptions import ApiError
 
-class ApiError(Exception):
-    def __init__(self, status_code, message=""):
-        self.status_code = status_code
-        self.message = message
-        super().__init__(f'ApiError:[{status_code}:{message}]')
+# class ApiError(Exception):
+#     def __init__(self, status_code, message=""):
+#         self.status_code = status_code
+#         self.message = message
+#         super().__init__(f'ApiError:[{status_code}:{message}]')
 
-def fetcher_top_repos(top: int)->list[dict]:
+def fetch_top_repos(top: int)->list[dict]:
     GITHUB_API = "https://api.github.com/search/repositories"
     GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
-    params = {"q": "language:python", "sort": "stars"}
-    headers = {"Anthorization": GITHUB_TOKEN}
+    params = {"q": "language:python", "sort": "stars", "per_page": top}
+    headers = {"Authorization": f'token {GITHUB_TOKEN}'}
 
     try:
         resp = requests.get(GITHUB_API, params=params, headers=headers, timeout=10)
@@ -30,7 +31,9 @@ def fetcher_top_repos(top: int)->list[dict]:
             raise ApiError(resp.status_code, resp.text)
         
     except requests.exceptions.Timeout:
-        raise ApiError(resp.status_code)
+        raise ApiError(0, "请求超时")
+    except requests.exceptions.ConnectionError:
+        raise ApiError(0, "网络连接失败")
 
-    data = resp.json()
+    data = resp.json() 
     return data["items"]
